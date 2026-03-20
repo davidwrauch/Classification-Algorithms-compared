@@ -69,8 +69,54 @@ So overall same story, but some implementation differences matter.
 
 ## Rough results (Python example)
 
-| model   | acc   | prec  | rec   |
-| ------- | ----- | ----- | ----- |
-| xgboost | ~0.92 | ~0.85 | ~0.93 |
-| mlp     | ~0.91 | ~0.86 | ~0.88 |
-| keras   | ~0.91 | ~0.86 | ~0.88 |
+| model        | acc   | prec  | rec   |
+| ------------ | ----- | ----- | ----- |
+| xgboost      | ~0.92 | ~0.85 | ~0.93 |
+| mlp          | ~0.91 | ~0.86 | ~0.88 |
+| keras        | ~0.91 | ~0.86 | ~0.88 |
+| rf           | ~0.89 | ~0.84 | ~0.86 |
+| knn (scaled) | ~0.89 | ~0.83 | ~0.88 |
+| logistic     | ~0.87 | ~0.83 | ~0.81 |
+
+Exact numbers vary a bit depending on tuning / randomness.
+
+---
+
+## Repo structure
+
+```text
+.
+├── python/
+│   └── classification_models.py
+├── r/
+│   └── classification_models.R
+├── data/
+│   └── Social_Network_Ads.csv
+```
+
+---
+
+## How to run
+
+### Python
+
+```bash
+conda activate classification
+python classification_models.py
+```
+
+### R
+
+Open the script in RStudio and run it.
+
+---
+
+## Takeaway
+
+Main thing I got from this:
+
+* For small tabular problems, tree-based models are really strong baselines
+* Neural nets aren’t automatically better (especially without tuning)
+* Results can shift a bit depending on library defaults, even for the same model
+
+---
