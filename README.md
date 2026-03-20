@@ -2,12 +2,12 @@
 
 ## TL;DR
 
-* XGBoost and Random Forest performed best on this tabular dataset
-* Neural networks did not outperform tree-based models without heavy tuning
-* KNN only worked well after scaling
-* Results were consistent across R and Python, with some differences due to library defaults
+* XGBoost and Random Forest gave the best overall performance on this tabular dataset
+* Neural networks didn’t outperform tree-based models without more tuning
+* KNN only worked properly after scaling (otherwise pretty unreliable)
+* Results were broadly consistent across R and Python, with some differences due to defaults
 
-Main takeaway: for small tabular problems like this, tree-based models are a strong first choice, and implementation details can matter more than model choice.
+In practice: if this were a real use case, I’d start with a tree-based model and then tune depending on whether recall or precision matters more, rather than jumping straight to more complex models.
 
 ---
 
@@ -120,3 +120,9 @@ Main thing I got from this:
 * Results can shift a bit depending on library defaults, even for the same model
 
 ---
+
+## If I kept going
+
+* do more systematic hyperparameter tuning
+* use cross-validation everywhere instead of a single split
+* try a bigger dataset to see if patterns hold
